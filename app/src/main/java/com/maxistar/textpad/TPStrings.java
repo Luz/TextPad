@@ -20,5 +20,6 @@ public class TPStrings{
     public static final String FONT_MONOSPACE = "Monospace";
     public static final String FONT_SERIF = "Serif";
     public static final String FONT_SANS_SERIF = "Sans Serif";
+    public static final String FONT_COMIC = "Comic";
     public static final String FOLDER_UP = "..";
 }

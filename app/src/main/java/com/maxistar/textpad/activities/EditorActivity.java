@@ -387,6 +387,10 @@ public class EditorActivity extends AppCompatActivity {
             mText.setTypeface(Typeface.SERIF);
         else if (font.equals(TPStrings.FONT_SANS_SERIF))
             mText.setTypeface(Typeface.SANS_SERIF);
+        else if (font.equals(TPStrings.FONT_COMIC)) {
+            Typeface typeface = Typeface.createFromAsset(getAssets(), "comic.ttf");
+            mText.setTypeface(typeface);
+        }
         else
             mText.setTypeface(Typeface.MONOSPACE);
 

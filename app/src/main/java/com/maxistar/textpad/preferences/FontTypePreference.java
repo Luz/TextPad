@@ -40,6 +40,8 @@ public class FontTypePreference extends DialogPreference
             selected = 1;
         else if (font.equals(TPStrings.FONT_SANS_SERIF))
             selected = 2;
+        else if (font.equals(TPStrings.FONT_COMIC))
+            selected = 3;
         else
             selected = 0;
     }
@@ -53,8 +55,10 @@ public class FontTypePreference extends DialogPreference
                     settingsService.setFont(TPStrings.FONT_MONOSPACE, getContext());
                 else if (selected == 1)
                     settingsService.setFont(TPStrings.FONT_SERIF, getContext());
-                else
+                else if (selected == 2)
                     settingsService.setFont(TPStrings.FONT_SANS_SERIF, getContext());
+                else
+                    settingsService.setFont(TPStrings.FONT_COMIC, getContext());
 
 
                 notifyChanged();
@@ -67,7 +71,7 @@ public class FontTypePreference extends DialogPreference
         });
 
         // load the font names
-        String[] arrayOfFonts = { TPStrings.FONT_MONOSPACE, TPStrings.FONT_SERIF, TPStrings.FONT_SANS_SERIF};
+        String[] arrayOfFonts = { TPStrings.FONT_MONOSPACE, TPStrings.FONT_SERIF, TPStrings.FONT_SANS_SERIF, TPStrings.FONT_COMIC};
         List<String> fonts = Arrays.asList(arrayOfFonts);
 
         FontTypeArrayAdapter adapter = new FontTypeArrayAdapter(getContext(), android.R.layout.simple_list_item_single_choice, fonts);
@@ -112,6 +116,10 @@ public class FontTypePreference extends DialogPreference
                     break;
                 case TPStrings.FONT_MONOSPACE:
                     tv.setTypeface(Typeface.MONOSPACE);
+                    break;
+                case TPStrings.FONT_COMIC:
+                    Typeface typeface = Typeface.createFromAsset(super.getContext().getAssets(), "comic.ttf");
+                    tv.setTypeface(typeface);
                     break;
             }
 
